@@ -1,0 +1,21 @@
+<div class="MyNav" (window:resize)="onResize($event)">
+    <div class="HamburgerMenuBox" (click)="menuToggle()">
+        <div class="HamburgerMenuLine" *ngFor="let line of lines"></div>
+    </div>
+    <div class="MenuListBox" *ngIf="showMenu">
+
+        <a routerLink="about" routerLinkActive="active">
+            <button class="MenuListItemStyles">About</button>
+        </a>
+        <a routerLink="store" routerLinkActive="active">
+            <button class="MenuListItemStyles">Posts</button>
+        </a>
+        <a routerLink="contact" routerLinkActive="active">
+            <button class="MenuListItemStyles">Contact</button>
+        </a>
+        <a routerLink="user" routerLinkActive="active">
+            <button class="MenuListItemStyles">User Panel</button>
+        </a>
+
+    </div>
+</div>

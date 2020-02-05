@@ -1,0 +1,17 @@
+<div class="products">
+    <div *ngFor="let dt of data">
+        <!-- <app-product [dt]="dt"></app-product> -->
+        <div class="product">
+            <img class="img" src={{dt.img}}/>
+            <div class="text">
+                <h2>{{dt.id}}</h2>
+                <span class="description">
+              {{lorem}}
+            </span>
+                <span>
+              <a [routerLink]="['/posts/', dt.id]">More about {{dt.id}}</a>
+            </span>
+            </div>
+        </div>
+    </div>
+</div>

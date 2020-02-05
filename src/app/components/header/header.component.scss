@@ -1,0 +1,79 @@
+$TitleHeaderSize: 78px;
+$TitleDescriptionSize: 26px;
+.MyHeader {
+    height: 55vh;
+    color: white;
+    background-image: url(../../../assets/img/milky-way-2695569_1920.jpg);
+    background-size: cover;
+    background-position: top;
+    padding: 25px;
+    position: relative;
+    border: 1px solid black;
+}
+
+.LogoBox {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.LogoImg {
+    width: 55px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.459);
+}
+
+.TitleBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.329);
+}
+
+.TitleHeader {
+    display: block;
+    font-size: $TitleHeaderSize;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    padding-left: 0.4em;
+}
+
+.TitleDescription {
+    display: block;
+    font-size: $TitleDescriptionSize;
+    font-weight: 400;
+    letter-spacing: 0.7em;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    padding-left: 0.7em;
+    animation-name: showTitle;
+    animation-duration: 10s;
+}
+
+@media screen and (max-width: 900px) {
+    .TitleHeader {
+        font-size: $TitleHeaderSize * 0.80;
+    }
+    .TitleDescription {
+        font-size: $TitleDescriptionSize * 0.75;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .TitleHeader {
+        font-size: $TitleHeaderSize * 0.56;
+    }
+    .TitleDescription {
+        font-size: $TitleDescriptionSize * 0.50;
+    }
+}

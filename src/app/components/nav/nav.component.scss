@@ -1,0 +1,62 @@
+    .MyNav {
+        // align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 5px 0px;
+    }
+
+    //div
+    .HamburgerMenuLine {
+        height: 5px;
+        width: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        background-color: black;
+    }
+
+    //div
+    .HamburgerMenuBox {
+        align-self: flex-end;
+        margin: 1px;
+        @media screen and (min-width: 600px) {
+            display: none;
+        }
+    }
+
+    .MenuListBox {
+        border: 1px solid black;
+        flex-direction: column;
+        height: auto;
+        display: flex;
+        padding: 20px;
+        @media screen and (min-width: 600px) {
+            flex-direction: row;
+            height: 100%;
+            justify-content: space-evenly;
+            align-items: flex-end;
+            padding: 10px;
+        }
+    }
+
+    .MenuListItemStyles {
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        text-align: center;
+        align-self: center;
+        font-weight: 600;
+        padding: 10px;
+        border: 1px solid black;
+        background-color: white;
+        min-height: 50px;
+        &:hover {
+            background-color: lightGray;
+            color: white;
+        }
+        @media screen and (min-width: 600px) {
+            flex-grow: 1;
+            align-self: flex-end;
+        }
+    }
