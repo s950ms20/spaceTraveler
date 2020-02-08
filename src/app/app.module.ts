@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { GetDataService } from './services/getData/get-data.service';
+import { GetFakeCommentsService } from './services/getFakeComments/get-fake-comments.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -13,6 +15,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import { PageNotFoundComponentComponent } from './components/page-not-found-component/page-not-found-component.component';
 import { ProductComponent } from './components/product/product.component';
+import { ProductDescriptionComponent } from './components/product-description/product-description.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -22,10 +26,10 @@ const appRoutes: Routes = [
   {
     path: 'store',
     component: StoreComponent,
-    data: { title: 'BookStore' }
+    data: { title: 'SpaceTraveler' }
   },
   { path: '',
-    redirectTo: '/store',
+    redirectTo: 'store',
     pathMatch: 'full'
   },
   { path: '**', component: PageNotFoundComponentComponent }
@@ -42,7 +46,9 @@ const appRoutes: Routes = [
     ContactComponent,
     UserPanelComponent,
     PageNotFoundComponentComponent,
-    ProductComponent
+    ProductComponent,
+    ProductDescriptionComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,10 @@ const appRoutes: Routes = [
     ),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    GetDataService,
+    GetFakeCommentsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

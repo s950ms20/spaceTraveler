@@ -14,33 +14,10 @@
             grid-template-columns: 1fr 1fr 1fr 1fr;
         }
     }
-    
-    .product {
-        max-width: 100%;
-        box-sizing: border-box;
-        margin: 5px;
-    }
-    
-    .img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-    
-    .text {
-        background-color: rgba(245, 245, 245, 0.452);
+
+    .btn {
+        margin: 10px;
         padding: 10px;
-        .author {
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        .description {
-            text-align: justify;
-        }
-        .btn {
-            margin: 10px 0px;
-            padding: 10px;
-            border: 1px solid black;
-            float: right;
-        }
+        border: 1px solid black;
+        float: right;
     }

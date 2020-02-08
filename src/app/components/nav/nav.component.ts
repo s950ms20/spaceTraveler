@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
 
   public innerWidth: number = window.innerWidth;
 
-  lines: number[] = [1, 2, 3];
+  lines: number[] = new Array(3);
 
   constructor() { }
 
@@ -25,7 +25,6 @@ export class NavComponent implements OnInit {
       this.showMenu = false;
     }
   }
-
 
   onResize(event) {
     if (event.target.innerWidth > 600) {

@@ -1,24 +1,6 @@
 <div class="products">
     <div *ngFor="let dt of data">
-        <div class="product">
-            <img class="img" src={{dt.img}}/>
-            <div class="text">
-                <h2>{{dt.id}}</h2>
-                <div class="author">
-                    <ul>
-                        <li>Created: {{dt.created}}</li>
-                        <li>Location: Mars </li>
-                        <li>Rover name: {{dt.roverName}}</li>
-                        <li>Camera Name: {{dt.cameraName}} </li>
-                    </ul>
-                </div>
-                <br/>
-                <div class="description">
-                    {{lorem}}
-                </div>
-                <br/>
-                <button class="btn more" [routerLink]="['/posts/', dt.id]">More about {{dt.id}}</button>
-            </div>
-        </div>
+        <app-product-description [dt]="dt"></app-product-description>
+        <button class="btn more" [routerLink]="['/posts/', dt.id]">More about {{dt.id}}</button>
     </div>
 </div>

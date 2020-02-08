@@ -1,0 +1,22 @@
+.product {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 5px;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text {
+    padding: 10px;
+    .author {
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+    .description {
+        text-align: justify;
+    }
+}

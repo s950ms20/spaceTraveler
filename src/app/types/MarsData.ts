@@ -1,5 +1,5 @@
 export interface MarsData {
-  id: string;
+  id: number;
   img: string;
   cameraName: string;
   roverName: string;
@@ -9,7 +9,7 @@ export interface MarsData {
 
 export class MarsData {
   constructor(
-    id: string,
+    id: number,
     img: string,
     cameraName: string,
     roverName: string,
