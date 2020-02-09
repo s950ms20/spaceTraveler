@@ -42,6 +42,10 @@ getFakeComments() {
   return this.commentsData;
 }
 
+addNewRealComment(newComment: MyComment)  {
+  this.commentsData.push(newComment);
+}
+
 
 }
 

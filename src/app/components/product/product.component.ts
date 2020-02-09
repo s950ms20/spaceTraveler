@@ -6,6 +6,8 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { GetDataService } from 'src/app/services/getData/get-data.service';
 import { GetFakeCommentsService } from 'src/app/services/getFakeComments/get-fake-comments.service';
 import { MyComment } from 'src/app/types/comment';
+import { AddCommentComponent } from '../add-comment/add-comment.component';
+
 
 
 @Component({
