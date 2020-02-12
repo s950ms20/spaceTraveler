@@ -1,0 +1,18 @@
+<div class="userReg">
+    <div class="errorClass" *ngIf="authError">
+        {{authError?.message}}
+    </div>
+
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <div class="userData">
+            <label for="email">Email</label>
+            <input ngModel #email="ngModel" name="email" type="email" class="inputField">
+
+            <label for="password">Password</label>
+            <input ngModel #password="ngModel" name="password" type="password" class="inputField">
+
+        </div>
+        <button class="btn" type="submit">Login</button>
+
+    </form>
+</div>

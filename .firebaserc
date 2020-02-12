@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "qsr3-1320b": {
+      "hosting": {
+        "bookstore": [
+          "qsr3-1320b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-test-project-534fb"
+  }
+}

@@ -1,0 +1,26 @@
+<div class="newCommentClass">
+    <div class="commentPreView" *ngIf="newComment">
+        {{newComment}}
+    </div>
+    <form (ngSubmit)="addNewComment()">
+
+        <div id="user">
+            <div id="name">
+                <label for="name">Name: </label>
+                <input type="text" class="inputField" [(ngModel)]="name" name="name" />
+            </div>
+            <div id="email">
+                <label for="email">Email: </label>
+                <input type="email" class="inputField" [(ngModel)]="email" name="email" />
+            </div>
+        </div>
+
+        <div id="comment">
+            <label for="newComment">Comment: </label><br/>
+            <textarea type="text" class="inputField" id="commentInput" [(ngModel)]="newComment" name="newComment" rows="10">
+        </textarea>
+        </div>
+
+        <button class="btn" type="submit">Submit</button>
+    </form>
+</div>

@@ -1,10 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { GetDataService } from './services/getData/get-data.service';
 import { GetFakeCommentsService } from './services/getFakeComments/get-fake-comments.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,24 +22,9 @@ import { PageNotFoundComponentComponent } from './components/page-not-found-comp
 import { ProductComponent } from './components/product/product.component';
 import { ProductDescriptionComponent } from './components/product-description/product-description.component';
 import { CommentsComponent } from './components/comments/comments.component';
-
-const appRoutes: Routes = [
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'user', component: UserPanelComponent },
-  { path: 'posts/:id', component: ProductComponent },
-  {
-    path: 'store',
-    component: StoreComponent,
-    data: { title: 'SpaceTraveler' }
-  },
-  { path: '',
-    redirectTo: 'store',
-    pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponentComponent }
-];
-
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -48,17 +38,21 @@ const appRoutes: Routes = [
     PageNotFoundComponentComponent,
     ProductComponent,
     ProductDescriptionComponent,
-    CommentsComponent
+    CommentsComponent,
+    AddCommentComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule ,
     AppRoutingModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
-    ),
-    HttpClientModule
-  ],
+      HttpClientModule
+    ],
   providers: [
     GetDataService,
     GetFakeCommentsService
