@@ -13,8 +13,17 @@
         <a routerLink="contact" routerLinkActive="active">
             <button class="MenuListItemStyles">Contact</button>
         </a>
-        <a routerLink="user" routerLinkActive="active">
+        <a *ngIf="user" routerLink="user" routerLinkActive="active">
             <button class="MenuListItemStyles">User Panel</button>
+        </a>
+        <a *ngIf="user" routerLink="/" routerLinkActive="active">
+            <button (click)="logout()" class="MenuListItemStyles">Logout</button>
+        </a>
+        <a *ngIf="!user" routerLink="login" routerLinkActive="active">
+            <button class="MenuListItemStyles">Login</button>
+        </a>
+        <a *ngIf="!user" routerLink="register" routerLinkActive="active">
+            <button class="MenuListItemStyles">Register</button>
         </a>
 
     </div>

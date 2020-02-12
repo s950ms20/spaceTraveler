@@ -1,0 +1,23 @@
+.userReg {
+    margin: 10px;
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.errorClass {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-align: justify;
+}
+
+.userData {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin: 10px 0px;
+}
+
+.inputField {
+    width: 100%;
+    padding: 10px 0px;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,12 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
   showMenu = true;
   mobileView = false;
-
+  user: firebase.User;
   public innerWidth: number = window.innerWidth;
-
   lines: number[] = new Array(3);
 
-  constructor() { }
+  constructor(
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
     if (this.innerWidth > 600) {
@@ -24,6 +26,11 @@ export class NavComponent implements OnInit {
       this.mobileView = true;
       this.showMenu = false;
     }
+
+    this.auth.getUserState()
+    .subscribe( user => {
+      this.user = user;
+    });
   }
 
   onResize(event) {
@@ -36,6 +43,9 @@ export class NavComponent implements OnInit {
     }
   }
 
+  logout() {
+    this.auth.logout();
+  }
 
   menuToggle() {
     this.showMenu = !this.showMenu;
