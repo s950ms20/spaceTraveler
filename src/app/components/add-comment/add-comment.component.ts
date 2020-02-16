@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { lorem } from 'src/app/tools/lorem';
 import { MyComment } from 'src/app/types/comment';
 import { GetFakeCommentsService } from 'src/app/services/getFakeComments/get-fake-comments.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { MarsData } from 'src/app/types/MarsData';
 
 @Component({
   selector: 'app-add-comment',
@@ -9,15 +11,21 @@ import { GetFakeCommentsService } from 'src/app/services/getFakeComments/get-fak
   styleUrls: ['./add-comment.component.scss']
 })
 export class AddCommentComponent implements OnInit {
-  newComment = `${lorem}`;
-  name = 'John Doe';
-  email = 'jdoe@mail.com';
+  @Input() dt: MarsData;
+  newComment = '';
+  user: firebase.User;
 
   constructor(
-    private getFakeCommentsFromService: GetFakeCommentsService
+    private getFakeCommentsFromService: GetFakeCommentsService,
+    private auth: AuthService
   ) {  }
 
   ngOnInit() {
+    this.auth.getUserState()
+    .subscribe( user => {
+      this.user = user;
+    });
+
   }
 
   createNewCommentID = (): string => {
@@ -26,12 +34,12 @@ export class AddCommentComponent implements OnInit {
 
   addNewComment = () => {
     const nc = new MyComment(
-      this.name,
-      this.email,
+      this.user.displayName,
+      this.user.uid,
       this.createNewCommentID(),
-      this.newComment
+      this.newComment,
+      this.dt.id
     );
-    console.log(nc);
     this.getFakeCommentsFromService.addNewRealComment(nc);
   }
 

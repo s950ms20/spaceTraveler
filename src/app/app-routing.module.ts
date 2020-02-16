@@ -26,11 +26,10 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
+      { onSameUrlNavigation: 'reload' } // <-- debugging purposes only
       ),
     ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
 
