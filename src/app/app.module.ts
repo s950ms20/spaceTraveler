@@ -25,6 +25,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { GetFirebaseDataService } from './services/get-firebase-data.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RegistrationComponent } from './auth/registration/registration.componen
     ],
   providers: [
     GetDataService,
-    GetFakeCommentsService
+    GetFakeCommentsService,
+    GetFirebaseDataService
   ],
   bootstrap: [AppComponent]
 })

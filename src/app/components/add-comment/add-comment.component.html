@@ -1,4 +1,4 @@
-<div class="newCommentClass">
+<div class="newCommentClass" *ngIf="user">
     <div class="commentPreView" *ngIf="newComment">
         {{newComment}}
     </div>
@@ -6,12 +6,7 @@
 
         <div id="user">
             <div id="name">
-                <label for="name">Name: </label>
-                <input type="text" class="inputField" [(ngModel)]="name" name="name" />
-            </div>
-            <div id="email">
-                <label for="email">Email: </label>
-                <input type="email" class="inputField" [(ngModel)]="email" name="email" />
+                {{user.displayName}}
             </div>
         </div>
 

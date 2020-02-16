@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map, catchError, switchMap } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { MyComment } from 'src/app/types/comment';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument   } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetFakeCommentsService {
 
-
-  readonly FAKE_COMMENTS_API_URL = 'https://jsonplaceholder.typicode.com/posts/1/comments';
-
+  readonly FAKE_COMMENTS_API_URL = 'https://jsonplaceholder.typicode.com/comments';
   commentsObservable: Observable<any>;
   commentsData: MyComment[] = [];
 
-
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private db: AngularFirestore
+    ) {     }
 
 getFakeComments() {
   this.commentsData.length = 0;
@@ -24,28 +25,32 @@ getFakeComments() {
   this.commentsObservable.pipe(
     map(cm =>  cm.map(
       obj =>
-      new MyComment(obj.name, obj.email, obj.id, obj.body)
+      new MyComment(obj.name, obj.email, obj.id, obj.body, obj.postId)
       )
       ),
-        map(cm => {
-  for (let step = 0; step < 5; step++) {
+      map(cm => {
+        for (let step = 0; step < 5; step++) {
     this.commentsData.push(cm[Math.floor(Math.random() * 499)]);
   }
         }
-          ),
+        ),
 
     catchError((err: any) => of (this.commentsObservable))
-  ).
-  subscribe();
-
+    ).
+    subscribe();
 
   return this.commentsData;
 }
 
 addNewRealComment(newComment: MyComment)  {
-  this.commentsData.push(newComment);
+  this.db.collection('Comments').doc(`${newComment.commentId}`).set({
+    authorName: newComment.authorName,
+    authorId: newComment.authorId,
+    commentId: newComment.commentId,
+    body: newComment.body,
+    postId: newComment.postId
+  });
 }
-
 
 }
 

@@ -8,10 +8,11 @@ import { MyComment } from 'src/app/types/comment';
 })
 export class CommentsComponent implements OnInit {
   @Input() commentsData: MyComment[];
+  @Input() paramsId: number;
 
-  constructor() { }
+  constructor() {   }
 
   ngOnInit() {
-  }
 
+  }
 }
