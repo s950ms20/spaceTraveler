@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ItemData } from '../../types/ItemData';
+import { Component, OnInit } from '@angular/core';
 import { lorem } from 'src/app/tools/lorem';
 import { MarsData } from 'src/app/types/MarsData';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +13,7 @@ import { GetFirebaseDataService } from 'src/app/services/get-firebase-data.servi
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  @Input() dt: ItemData;
+
 
   public lorem =  lorem;
   public selectedData: MarsData;
@@ -25,7 +24,7 @@ export class ProductComponent implements OnInit {
     private getDataFromService: GetDataService,
     private route: ActivatedRoute,
     private getFakeCommentsFromService: GetFakeCommentsService,
-    private getFbData: GetFirebaseDataService
+    private getFbData: GetFirebaseDataService,
     ) { }
 
   ngOnInit() {
@@ -33,12 +32,12 @@ export class ProductComponent implements OnInit {
    this.paramsId = Number(params.get('id'));
   });
 
-    const data = this.getDataFromService.getData();
-    this.selectedData = data.filter(dt => dt.id === this.paramsId)[0];
+   const data = this.getDataFromService.getData();
+   this.selectedData = data.filter(dt => dt.id === this.paramsId)[0];
 
-    const commentsData = this.getFakeCommentsFromService.getFakeComments();
+   const commentsData = this.getFakeCommentsFromService.getFakeComments();
 
-    this.getFbData.comments
+   this.getFbData.comments
     .subscribe((val: MyComment[]) => {
       const preFiltered = val.filter(v => v.postId === this.paramsId);
       this.commentsData = [];
@@ -50,3 +49,6 @@ export class ProductComponent implements OnInit {
   }
 
 }
+
+
+

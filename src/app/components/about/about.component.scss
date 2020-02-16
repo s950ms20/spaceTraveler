@@ -1,0 +1,17 @@
+.about {
+    margin: 10px;
+    padding: 5px;
+    font-size: 90%;
+    text-align: justify;
+}
+
+.desc {
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.img {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+}
