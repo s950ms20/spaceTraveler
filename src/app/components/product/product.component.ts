@@ -14,7 +14,6 @@ import { GetFirebaseDataService } from 'src/app/services/get-firebase-data.servi
 })
 export class ProductComponent implements OnInit {
 
-
   public lorem =  lorem;
   public selectedData: MarsData;
   public paramsId: number;
@@ -42,7 +41,6 @@ export class ProductComponent implements OnInit {
       const preFiltered = val.filter(v => v.postId === this.paramsId);
       this.commentsData = [];
       this.commentsData = [ ...commentsData, ...preFiltered];
-      console.log(this.commentsData);
     }
       );
 

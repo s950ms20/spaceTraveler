@@ -1,6 +1,7 @@
 <div class="userData" *ngIf="user">
     <p>Hello {{user?.displayName}}, How are You?</p>
     <br/>
+    <h3>Your Comments:</h3>
     <div class="comments" *ngFor="let cm of filteredComments">
         <span class="author" [routerLink]="['/posts/', cm.postId]">PHOTO #{{cm.postId}}</span>
         <div class="commentBody">
